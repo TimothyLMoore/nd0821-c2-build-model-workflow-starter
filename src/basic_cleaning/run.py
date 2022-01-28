@@ -20,6 +20,8 @@ def go(args):
     # particular version of the artifact
     # artifact_local_path = run.use_artifact(args.input_artifact).file()
 
+    #This is for GIT testing
+
     import wandb
     import pandas as pd
     import pandas_profiling
