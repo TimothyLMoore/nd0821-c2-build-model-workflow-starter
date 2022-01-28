@@ -33,12 +33,22 @@ def go(args):
     profile = pandas_profiling.ProfileReport(df)
     profile.to_widgets()
 
-    min_price = 10
-    max_price = 350
-    idx = df['price'].between(min_price, max_price)
+    args.min_price = 10
+    args.max_price = 350
+    idx = df['price'].between(args.min_price, args.max_price)
     df = df[idx].copy()
 
     df['last_review'] = pd.to_datetime(df['last_review'])
+
+    df.to_csv("clean_sample.csv", index=False)
+
+    artifact = wandb.Artifact(
+         args.output_artifact,
+         type=args.output_type,
+         description=args.output_description,
+    )
+    artifact.add_file("clean_sample.csv")
+    run.log_artifact(artifact)
 
     run.finish()
 
@@ -52,43 +62,43 @@ if __name__ == "__main__":
     parser.add_argument(
         "--input_artifact", 
         type=str,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Fully-qualified name for the input artifact",
+        required=True,
     )
 
     parser.add_argument(
         "--output_artifact", 
         type=str,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Fully-qualified name for the output artifact",
+        required=True,
     )
 
     parser.add_argument(
         "--output_type", 
         type=str,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Dataframe",
+        required=True,
     )
 
     parser.add_argument(
         "--output_description", 
         type=str,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Cleaned data for the price on NYV apartments",
+        required=True,
     )
 
     parser.add_argument(
         "--min_price", 
         type=float,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Minimum price we're willing to pay for to rent a place",
+        required=True,
     )
 
     parser.add_argument(
         "--max_price", 
         type=float,
-        help=## INSERT DESCRIPTION HERE,
-        required=True
+        help="Maximum price we're willing to pay for to rent a place",
+        required=True,
     )
 
 
