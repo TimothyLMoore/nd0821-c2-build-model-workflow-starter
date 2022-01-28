@@ -62,11 +62,18 @@ def go(config: DictConfig):
                  },
              )
 
-        if "data_check" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+        if "check_data" in steps_to_execute:
+                _ = mlflow.run(
+                    os.path.join(hydra.utils.get_original_cwd(), "src", "check_data"),
+                    "main",
+                    parameters={
+                        "csv": "clean_sample.csv:latest",
+                        "ref": "clean_sample.csv:reference",
+                        "kl_threshold": config["data_check"]["kl_threshold"],
+                        "min_price": config["data_check"]['min_price'],
+                        "max_price": config["data_check"]['max_price']
+                    },
+                )
 
         if "data_split" in active_steps:
             ##################
