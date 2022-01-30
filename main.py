@@ -118,6 +118,7 @@ def go(config: DictConfig):
                     parameters={
                         "mlflow_model": "random_forest_export:prod",
                         "test_artifact": "test_data.csv:latest"
+                        #comment to commit
                     },
                 )
 
