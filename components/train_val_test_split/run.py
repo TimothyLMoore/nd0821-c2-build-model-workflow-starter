@@ -67,10 +67,6 @@ if __name__ == "__main__":
         "--stratify_by", type=str, help="Column to use for stratification", default='none', required=False
     )
 
-    parser.add_argument(
-        "--output_artifact", type=str, help="Column to use for stratification", default='none', required=False
-    )
-
     args = parser.parse_args()
 
     go(args)
