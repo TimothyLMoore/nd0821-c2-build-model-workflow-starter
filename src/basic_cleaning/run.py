@@ -32,9 +32,6 @@ def go(args):
     local_path = wandb.use_artifact("sample.csv:latest").file()
     df = pd.read_csv(local_path)
 
-    profile = pandas_profiling.ProfileReport(df)
-    profile.to_widgets()
-
     args.min_price = 10
     args.max_price = 350
     idx = df['price'].between(args.min_price, args.max_price)
@@ -50,6 +47,7 @@ def go(args):
          description=args.output_description,
     )
     artifact.add_file("clean_sample.csv")
+
     run.log_artifact(artifact)
 
     run.finish()
