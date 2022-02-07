@@ -20,7 +20,7 @@ login to your Wandb (wandb login (API Key))
 
 >  mlflow run .
 
-This will run the entire pipeline, before you test the regression model you'll have to set tag your best model as "prod" on WandB the run.
+This will run the entire pipeline, before you test the regression model you'll have to set tag your best model as 'prod' on WandB the run.
 
 > mlflow run . -P steps=test_regression_model
 
