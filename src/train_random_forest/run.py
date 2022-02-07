@@ -173,7 +173,10 @@ def get_inference_pipeline(rf_config, max_tfidf_features):
     # Build a pipeline with two steps:
     # 1 - A SimpleImputer(strategy="most_frequent") to impute missing values
     # 2 - A OneHotEncoder() step to encode the variable
-    non_ordinal_categorical_preproc = OneHotEncoder(SimpleImputer(strategy="most_frequent"))
+    non_ordinal_categorical_preproc = make_pipeline(
+        SimpleImputer(strategy='most_frequent'),
+        OneHotEncoder()
+    )
     ######################################
 
     # Let's impute the numerical columns to make sure we can handle missing values
