@@ -6,4 +6,5 @@ dependencies:
   - pip=20.3.3
   - pandas=1.2.3
   - wandb==0.10.31
-  - pandas_profiling==3.1.0
+  - pip:
+  -   pandas_profiling==3.1.0
