@@ -9,8 +9,11 @@ Using the starting code provided, we'll write a program tha uses MLFlow and Wand
 ## Running Files
 
 > git clone https://github.com/TimothyLMoore/nd0821-c2-build-model-workflow-starter.git
+
 > cd nd0821-c2-build-model-workflow-starter
+
 > conda env create -f environment.yml
+
 > conda activate nyc_airbnb_dev
 
 login to your Wandb (wandb login (API Key))
