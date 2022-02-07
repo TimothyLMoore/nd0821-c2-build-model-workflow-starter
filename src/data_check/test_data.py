@@ -80,4 +80,4 @@ def test_price_range(data, min_price, max_price):
     :return: assert the price is between Min_price and max_price
     """
 
-    assert data['price'].between(min_price,max_price)
+    assert all(data['price'].between(min_price,max_price))
