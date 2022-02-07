@@ -121,7 +121,7 @@ def go(args):
 
     artifact.add_dir("random_forest_dir")
 
-    run.log_artifact()
+    run.log_artifact(artifact)
     ######################################
 
     # Plot feature importance
@@ -134,7 +134,7 @@ def go(args):
     run.summary['mae'] = mae
     ######################################
 
-    # Upload to W&B the feture importance visualization
+    # Upload to W&B the feature importance visualization
     run.log(
         {
           "feature_importance": wandb.Image(fig_feat_imp),
