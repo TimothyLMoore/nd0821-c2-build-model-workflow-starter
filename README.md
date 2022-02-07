@@ -27,22 +27,38 @@ This will run the entire pipeline, before you test the regression model you'll h
 ## Hyperparameters
 
 test_size: 0.2
+
 val_size: 0.2
+
 random_seed: 42
+
 stratify_by: "neighbourhood_group"
+
 max_tfidf_features: 15
+
 random_forest:
+
     n_estimators: 100
+
     max_depth: 15
+
     min_samples_split: 4
+
     min_samples_leaf: 3
+
     n_jobs: -1
+
     criterion: mae
+
     max_features: 0.5
+
     oob_score: true
 
+
 Scores:
+
 MAE = 33
+
 R-Squared = 0.5594
 
 ## Submission Details
