@@ -6,27 +6,27 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: "Fully-qualified name for the input artifact"
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: "Fully-qualified name for the output artifact"
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: "Dataframe"
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: "Cleaned data for the price on NYV apartments"
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
+        description: "Minimum price we're willing to pay for to rent a place"
         type: string
 
       max_price:
-        description: ## ADD DESCRIPTION
+        description: "Maximum price we're willing to pay for to rent a place"
         type: string
 
 
